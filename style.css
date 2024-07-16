@@ -1,53 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Truck</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="menu-icon" id="menu-icon">&#9776;</div>
-            <ul id="nav-menu">
-                <li><a href="#" id="home">Home</a></li>
-                <li><a href="#" id="about">About</a></li>
-                <li><a href="#" id="menu">Menu</a></li>
-                <li><a href="#" id="location">Location</a></li>
-                <li><a href="#" id="contact">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn" id="catering">Catering</a>
-                    <div class="dropdown-content">
-                        <a href="#">Catering Services</a>
-                        <a href="#">Corporate Events</a>
-                        <a href="#">Private Parties</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn" id="events">Events</a>
-                    <div class="dropdown-content">
-                        <a href="#">Upcoming Events</a>
-                        <a href="#">Past Events</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="hero">
-            <img src="foodtruck.jpg" alt="Food Truck">
-            <div class="hero-text">
-                <h1>Alaz</h1>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>© Alaz 2024</p>
-    </footer>
-    <script src="script.js"></script>
-</body>
-</html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playwrite CU', sans-serif;
+    background-color: #40534C;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #1A3636;
+    color: #677D6A;
+    padding: 10px 0;
+}
+
+nav {
+    position: relative;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    color: #677D6A;
+    padding: 10px 20px;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #677D6A;
+    padding: 10px 20px;
+    display: block;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #555;
+    color: #D6BD98;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1A3636;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #677D6A;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+    color: #D6BD98;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    flex: 1;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    color: #D6BD98; /* Updated color */
+}
+
+footer {
+    background-color: #1A3636;
+    color: #D6BD98;
+    text-align: center;
+    font-size: 10px;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul li .dropdown-content {
+        position: static;
+        box-shadow: none;
+    }
+
+    nav ul li .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}

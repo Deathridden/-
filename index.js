@@ -11,7 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
         item.addEventListener('click', () => {
             menuItems.forEach(link => link.classList.remove('active'));
             item.classList.add('active');
-            navMenu.classList.remove('show');
+            if (item.parentElement.classList.contains('dropdown')) {
+                item.parentElement.querySelector('.dropdown-content').classList.toggle('show');
+            } else {
+                navMenu.classList.remove('show');
+                document.querySelectorAll('.dropdown-content').forEach(content => content.classList.remove('show'));
+            }
         });
+    });
+
+    // Close the dropdowns when clicking outside of them
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav')) {
+            navMenu.classList.remove('show');
+            document.querySelectorAll('.dropdown-content').forEach(content => content.classList.remove('show'));
+        }
     });
 });
